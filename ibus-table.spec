@@ -1,4 +1,4 @@
-%define	version 0.1.1.20080823
+%define	version 0.1.1.20080829
 %define	release %mkrel 1
 
 Name:      ibus-table
@@ -38,3 +38,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %{_bindir}/*
 %{_datadir}/%{name}
+%{_datadir}/ibus/engine/*.engine
