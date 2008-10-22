@@ -1,5 +1,5 @@
 %define	version 0.1.1.20081014
-%define	release %mkrel 1
+%define	release %mkrel 2
 
 Name:      ibus-table
 Summary:   ibus - table-based engine
@@ -22,7 +22,14 @@ ibus - table-based engine.
 %setup -q -n %{name}-%{version}
 
 %build
-%configure2_5x --build=%_host
+%configure2_5x --build=%_host \
+	--disable-static \
+	--enable-zhengma \
+	--enable-wubi86 \
+	--enable-wubi98 \
+	--enable-cangjie5 \
+	--enable-erbi-qs \
+	--enable-additional
 %make
 
 %install
