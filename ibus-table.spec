@@ -1,5 +1,5 @@
-%define	version 0.1.1.20081014
-%define	release %mkrel 2
+%define	version 0.1.1.20081115
+%define	release %mkrel 1
 
 Name:      ibus-table
 Summary:   ibus - table-based engine
