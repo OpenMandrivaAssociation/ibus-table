@@ -1,4 +1,4 @@
-%define	version 0.1.2.20090104
+%define	version 1.1.0.20090220
 %define	release %mkrel 1
 
 Name:      ibus-table
@@ -9,12 +9,10 @@ Group:     System/Internationalization
 License:   GPLv2+
 URL:       http://code.google.com/p/ibus/
 Source0:   http://ibus.googlecode.com/files/%{name}-%{version}.tar.gz
-Patch0:	   ibus-table-0.1.2.20090104-noarch.diff
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: python-devel
-BuildRequires: swig
-BuildArch:	noarch
-Requires:	ibus
+BuildRequires:	ibus-devel >= 1.1.0
+%py_requires -d
+Requires:	ibus >= 1.1.0
 Provides:	%{name}-devel = %{version}-%{release}
 
 %description
@@ -22,7 +20,6 @@ ibus - table-based engine.
 
 %prep
 %setup -q -n %{name}-%{version}
-%patch0 -p0
 
 %build
 %configure2_5x --build=%_host \
@@ -41,7 +38,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %name.lang
 %defattr(-,root,root)
-%{_bindir}/*
-%{_datadir}/%{name}
-%{_datadir}/ibus/engine/*.engine
-%{_datadir}/pkgconfig/*
+%{_bindir}/ibus-table-createdb
+%{_libexecdir}/ibus-engine-table
+%{_libdir}/pkgconfig/ibus-table.pc
+%{_datadir}/ibus-table
+%{_datadir}/ibus/component/*.xml
