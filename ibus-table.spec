@@ -1,4 +1,4 @@
-%define	version 1.1.0.20090527
+%define	version 1.1.0.20090601
 %define	release %mkrel 1
 
 Name:      ibus-table
@@ -22,8 +22,7 @@ ibus - table-based engine.
 %setup -q -n %{name}-%{version}
 
 %build
-%configure2_5x --build=%_host \
-	--disable-static \
+%configure2_5x \
 	--enable-additional
 %make
 
@@ -40,6 +39,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %{_bindir}/ibus-table-createdb
 %{_libexecdir}/ibus-engine-table
+%{_libexecdir}/ibus-setup-table
 %{_libdir}/pkgconfig/ibus-table.pc
 %{_datadir}/ibus-table
 %{_datadir}/ibus/component/*.xml
