@@ -39,7 +39,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %{_bindir}/ibus-table-createdb
 %{_libexecdir}/ibus-engine-table
-%{_libexecdir}/ibus-setup-table
 %{_libdir}/pkgconfig/ibus-table.pc
 %{_datadir}/ibus-table
 %{_datadir}/ibus/component/*.xml
