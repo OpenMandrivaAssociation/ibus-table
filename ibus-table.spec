@@ -1,4 +1,4 @@
-%define	version 1.1.0.20090615
+%define	version 1.2.0.20090625
 %define	release %mkrel 1
 
 Name:      ibus-table
@@ -10,9 +10,9 @@ License:   GPLv2+
 URL:       http://code.google.com/p/ibus/
 Source0:   http://ibus.googlecode.com/files/%{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:	ibus-devel >= 1.1.0
+BuildRequires:	ibus-devel >= 1.2.0
 %py_requires -d
-Requires:	ibus >= 1.1.0
+Requires:	ibus >= 1.2.0
 Provides:	%{name}-devel = %{version}-%{release}
 
 %description
