@@ -1,4 +1,4 @@
-%define	version 1.2.0.20090625
+%define	version 1.2.0.20090804
 %define	release %mkrel 1
 
 Name:      ibus-table
@@ -39,6 +39,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %{_bindir}/ibus-table-createdb
 %{_libexecdir}/ibus-engine-table
+%{_libexecdir}/ibus-setup-table
 %{_libdir}/pkgconfig/ibus-table.pc
 %{_datadir}/ibus-table
 %{_datadir}/ibus/component/*.xml
