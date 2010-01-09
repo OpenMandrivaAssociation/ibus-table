@@ -1,5 +1,5 @@
 %define	version 1.2.0.20091113
-%define	release %mkrel 1
+%define	release %mkrel 2
 
 Name:      ibus-table
 Summary:   ibus - table-based engine
@@ -9,6 +9,8 @@ Group:     System/Internationalization
 License:   GPLv2+
 URL:       http://code.google.com/p/ibus/
 Source0:   http://ibus.googlecode.com/files/%{name}-%{version}.tar.gz
+Source1:   ibus-table.filter
+Source2:   ibus-table.script
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	ibus-devel >= 1.2.0
 %py_requires -d
@@ -32,6 +34,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %find_lang %name
 
+install -d -m 0755 %buildroot%{_var}/lib/rpm/filetriggers
+install -m 0644 %{SOURCE1} %buildroot%{_var}/lib/rpm/filetriggers
+install -m 0755 %{SOURCE2} %buildroot%{_var}/lib/rpm/filetriggers
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -42,3 +48,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/pkgconfig/ibus-table.pc
 %{_datadir}/ibus-table
 %{_datadir}/ibus/component/*.xml
+%{_var}/lib/rpm/filetriggers/*
