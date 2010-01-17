@@ -20,6 +20,24 @@ Provides:	%{name}-devel = %{version}-%{release}
 %description
 ibus - table-based engine.
 
+%package compose
+Summary: Mimic Compose Key input
+Group: System/Internationalization
+Requires: %name >= 1.2.0.20091113-3
+Conflicts: %name < 1.2.0.20091113-3
+
+%description compose
+Provides Mimic Compose Key input via ibus-table.
+
+%package latex
+Summary: Use LaTeX input keystrokes to input symbols
+Group: System/Internationalization
+Requires: %name >= 1.2.0.20091113-3
+Conflicts: %name < 1.2.0.20091113-3
+
+%description latex
+Use LaTeX input keystrokes to input lots of symbols.
+
 %prep
 %setup -q -n %{name}-%{version}
 
@@ -30,7 +48,7 @@ ibus - table-based engine.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%makeinstall_std
+%makeinstall_std NO_INDEX=1
 
 %find_lang %name
 
@@ -49,3 +67,17 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/ibus-table
 %{_datadir}/ibus/component/*.xml
 %{_var}/lib/rpm/filetriggers/*
+%exclude %{_datadir}/ibus-table/icons/compose.svg
+%exclude %{_datadir}/ibus-table/tables/compose.db
+%exclude %{_datadir}/ibus-table/icons/latex.svg
+%exclude %{_datadir}/ibus-table/tables/latex.db
+
+%files compose
+%defattr(-,root,root)
+%{_datadir}/ibus-table/icons/compose.svg
+%{_datadir}/ibus-table/tables/compose.db
+
+%files latex
+%defattr(-,root,root)
+%{_datadir}/ibus-table/icons/latex.svg
+%{_datadir}/ibus-table/tables/latex.db
