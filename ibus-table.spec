@@ -1,5 +1,5 @@
 %define	version 1.3.0.20100621
-%define	release %mkrel 1
+%define	release %mkrel 2
 
 Name:      ibus-table
 Summary:   ibus - table-based engine
@@ -13,7 +13,7 @@ Source1:   ibus-table.filter
 Source2:   ibus-table.script
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	ibus-devel >= 1.2.0
-%py_requires -d
+BuildRequires:	python-devel
 Requires:	ibus >= 1.2.0
 Provides:	%{name}-devel = %{version}-%{release}
 
