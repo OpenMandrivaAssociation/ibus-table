@@ -47,7 +47,7 @@ Use LaTeX input keystrokes to input lots of symbols.
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std NO_INDEX=1
 
 %find_lang %name
@@ -57,7 +57,7 @@ install -m 0644 %{SOURCE1} %buildroot%{_var}/lib/rpm/filetriggers
 install -m 0755 %{SOURCE2} %buildroot%{_var}/lib/rpm/filetriggers
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files -f %name.lang
 %defattr(-,root,root)
