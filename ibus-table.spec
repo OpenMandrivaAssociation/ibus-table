@@ -1,3 +1,6 @@
+%define _enable_debug_packages %{nil}
+%define debug_package %{nil}
+
 Name:		ibus-table
 Summary:	ibus - table-based engine
 Version:	1.3.0.20100621
