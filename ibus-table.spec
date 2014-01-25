@@ -1,79 +1,51 @@
+# We cannot make this package noarch but there are no binary files here
 %define _enable_debug_packages %{nil}
 %define debug_package %{nil}
 
-Name:		ibus-table
 Summary:	ibus - table-based engine
-Version:	1.3.0.20100621
-Release:	4
+Name:		ibus-table
+Version:	1.5.0
+Release:	1
 Group:		System/Internationalization
 License:	GPLv2+
-URL:		http://code.google.com/p/ibus/
+Url:		http://code.google.com/p/ibus/
 Source0:	http://ibus.googlecode.com/files/%{name}-%{version}.tar.gz
 Source1:	ibus-table.filter
 Source2:	ibus-table.script
-BuildRequires:	ibus-devel >= 1.2.0
-BuildRequires:	python-devel
-Requires:	ibus >= 1.2.0
-Provides:	%{name}-devel = %{version}-%{release}
+Source10:	%{name}.rpmlintrc
+BuildRequires:	pkgconfig(ibus-1.0)
+BuildRequires:	pkgconfig(python)
+Requires:	ibus
+Provides:	%{name}-devel = %{EVRD}
+Obsoletes:	ibus-table-compose < 1.5.0
+Obsoletes:	ibus-table-latex < 1.5.0
 
 %description
 ibus - table-based engine.
 
-%package compose
-Summary:	Mimic Compose Key input
-Group:		System/Internationalization
-Requires:	%name >= 1.2.0.20091113-3
-Conflicts:	%name < 1.2.0.20091113-3
-
-%description compose
-Provides Mimic Compose Key input via ibus-table.
-
-%package latex
-Summary:	Use LaTeX input keystrokes to input symbols
-Group:		System/Internationalization
-Requires:	%name >= 1.2.0.20091113-3
-Conflicts:	%name < 1.2.0.20091113-3
-
-%description latex
-Use LaTeX input keystrokes to input lots of symbols.
-
-%prep
-%setup -q -n %{name}-%{version}
-
-%build
-%configure2_5x \
-	--enable-additional
-%make
-
-%install
-%makeinstall_std NO_INDEX=1
-
-%find_lang %name
-
-install -d -m 0755 %buildroot%{_var}/lib/rpm/filetriggers
-install -m 0644 %{SOURCE1} %buildroot%{_var}/lib/rpm/filetriggers
-install -m 0755 %{SOURCE2} %buildroot%{_var}/lib/rpm/filetriggers
-
-%files -f %name.lang
-%defattr(-,root,root)
+%files -f %{name}.lang
 %{_bindir}/ibus-table-createdb
 %{_libexecdir}/ibus-engine-table
 %{_libdir}/pkgconfig/ibus-table.pc
 %{_datadir}/ibus-table
 %{_datadir}/ibus/component/*.xml
 %{_var}/lib/rpm/filetriggers/*
-%exclude %{_datadir}/ibus-table/icons/compose.svg
-%exclude %{_datadir}/ibus-table/tables/compose.db
-%exclude %{_datadir}/ibus-table/icons/latex.svg
-%exclude %{_datadir}/ibus-table/tables/latex.db
 
-%files compose
-%defattr(-,root,root)
-%{_datadir}/ibus-table/icons/compose.svg
-%{_datadir}/ibus-table/tables/compose.db
+#----------------------------------------------------------------------------
 
-%files latex
-%defattr(-,root,root)
-%{_datadir}/ibus-table/icons/latex.svg
-%{_datadir}/ibus-table/tables/latex.db
+%prep
+%setup -q
+
+%build
+%configure2_5x
+%make
+
+%install
+%makeinstall_std NO_INDEX=1
+
+%find_lang %{name}
+
+install -d -m 0755 %{buildroot}%{_var}/lib/rpm/filetriggers
+install -m 0644 %{SOURCE1} %{buildroot}%{_var}/lib/rpm/filetriggers
+install -m 0755 %{SOURCE2} %{buildroot}%{_var}/lib/rpm/filetriggers
 

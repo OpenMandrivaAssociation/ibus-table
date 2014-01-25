@@ -1,0 +1,2 @@
+# Whole package is devel
+addFilter("devel-file-in-non-devel-package")
