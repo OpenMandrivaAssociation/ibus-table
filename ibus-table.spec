@@ -28,25 +28,6 @@ Obsoletes:	ibus-table-latex < 1.5.0
 %description
 ibus - table-based engine.
 
-%package compose
-Summary: Mimic Compose Key input
-Group: System/Internationalization
-Requires: %{name} >= 1.2.0.20091113-3
-Conflicts: %{name} < 1.2.0.20091113-3
-
-%description compose
-Provides Mimic Compose Key input via ibus-table.
-
-%package latex
-Summary: Use LaTeX input keystrokes to input symbols
-Group: System/Internationalization
-Requires: %{name} >= 1.2.0.20091113-3
-Conflicts: %{name} < 1.2.0.20091113-3
-
-%description latex
-Use LaTeX input keystrokes to input lots of symbols.
-
-
 #----------------------------------------------------------------------------
 
 %%prep
