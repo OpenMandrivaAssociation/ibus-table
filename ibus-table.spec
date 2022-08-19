@@ -56,3 +56,5 @@ mv %{buildroot}%{_libdir}/pkgconfig/ibus-table.pc %{buildroot}%{_datadir}/pkgcon
 %{_datadir}/metainfo/*.xml
 %{_datadir}/glib-2.0/schemas/org.freedesktop.ibus.engine.table.gschema.xml
 %{_mandir}/man1/ibus-*
+%{_iconsdir}/hicolor/*x*/apps/ibus-table.png
+%{_iconsdir}/hicolor/scalable/apps/ibus-table.svg
