@@ -4,7 +4,7 @@
 
 Summary:	ibus - table-based engine
 Name:		ibus-table
-Version:	1.17.4
+Version:	1.17.5
 Release:	1
 Group:		System/Internationalization
 License:	GPLv2+
