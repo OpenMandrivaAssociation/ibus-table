@@ -14,6 +14,11 @@ Source1:	ibus-table.filter
 Source2:	ibus-table.script
 Source10:	%{name}.rpmlintrc
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(ibus-1.0)
 BuildRequires:	pkgconfig(python)
 BuildRequires: gettext-devel
